@@ -9,12 +9,18 @@
 # code into this module, away from the Modal application code.
 
 def main():
+    import os
+    from dotenv import load_dotenv
+    from supabase import create_client, Client
+
     import numpy as np
     import pandas as pd
     import streamlit as st
     import pydeck as pdk
     import folium
     from streamlit_folium import st_folium
+
+   
 
 
     st.title("Uber pickups in NYC!")
@@ -115,7 +121,25 @@ def main():
         st.info("No pickups available for this hour to display on Folium map.")
 
 
+    def get_client() -> Client:
+        load_dotenv()
+        url = os.getenv("SUPABASE_URL")
+        key = os.getenv("SUPABASE_KEY")
+        if not url or not key:
+            raise RuntimeError("Missing SUPABASE_URL or SUPABASE_KEY in .env")
+        return create_client(url, key)
 
+
+    supabase = get_client()
+
+    # Replace "your_table" with a real table in your Supabase project
+    # For demo purposes: SELECT * LIMIT 5
+    response = supabase.table("eagles_offense").select("*").limit(5).execute()
+
+    # response.data is a list of dict rows
+    print("Rows:")
+    for row in response.data:
+        print(row)
 
 if __name__ == "__main__":
     main()
