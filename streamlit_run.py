@@ -136,10 +136,15 @@ def main():
     # For demo purposes: SELECT * LIMIT 5
     response = supabase.table("eagles_offense").select("*").limit(5).execute()
 
-    # response.data is a list of dict rows
-    print("Rows:")
-    for row in response.data:
-        print(row)
-
+    # # response.data is a list of dict rows
+    # print("Rows:")
+    # for row in response.data:
+    #     print(row)
+# Display data in Streamlit
+    st.subheader("Supabase Data (First 5 rows)")
+    if response.data:
+        st.write(pd.DataFrame(response.data))
+    else:
+        st.info("No data found in Supabase table.")
 if __name__ == "__main__":
     main()
