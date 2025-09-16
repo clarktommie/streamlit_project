@@ -84,13 +84,13 @@ def main():
             initial_view_state=view_state,
             tooltip={"text": "Pickup at ({lat}, {lon})"},
         )
-
+        
         st.pydeck_chart(deck, use_container_width=True)
     else:
         st.info("No data available for this hour to display on Pydeck chart.")
 
         st.subheader(f"Folium map of pickups at {hour_to_filter}:00")
-
+    st.subheader(f"folium map of pickups at {hour_to_filter}:00")
     if not filtered_data.empty:
         # Calculate center of map as mean of lat/lon
         center_lat = filtered_data["lat"].mean()
@@ -141,10 +141,16 @@ def main():
     # for row in response.data:
     #     print(row)
 # Display data in Streamlit
-    st.subheader("Supabase Data (First 5 rows)")
+    st.subheader("Supabase Data (First 5 rows) - ")
+    st.markdown(
+    "<span style='color:darkgreen; font-weight:bold;'>GO BIRDS!! 🦅</span>",
+    unsafe_allow_html=True
+    )
+
     if response.data:
         st.write(pd.DataFrame(response.data))
     else:
         st.info("No data found in Supabase table.")
+
 if __name__ == "__main__":
     main()
