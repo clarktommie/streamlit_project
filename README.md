@@ -25,17 +25,28 @@ The app provides **interactive dashboards** where users can explore these patter
 ---
 
 ## 📂 Project Structure
+
+---
+
+
 ## Setup Environment with UV
 uv venv
 uv pip install -r requirements.txt
+
+---
+
 
 ## Create Environment Variables
 - SUPABASE_URL=your-supabase-url
 - SUPABASE_KEY=your-supabase-key
 - MODAL_TOKEN=your-modal-token
 
+---
+
 ## run Streamlit script
 streamlit run streamlit_run.py
+
+---
 
 🚀 Deployment
 
