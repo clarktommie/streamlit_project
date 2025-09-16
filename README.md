@@ -34,3 +34,42 @@ uv pip install -r requirements.txt
 - SUPABASE_KEY=your-supabase-key
 - MODAL_TOKEN=your-modal-token
 
+## run Streamlit script
+streamlit run streamlit_run.py
+
+🚀 Deployment
+
+Modal: Deploy pipelines or batch jobs using modal deploy.
+
+Streamlit Cloud or Modal: Host the frontend app.
+
+Supabase: Hosts datasets & manages authentication.
+
+📊 Example Visualizations
+
+Heatmap of Uber pickups across NYC
+
+Pickup counts by hour of day
+
+Weekly trends across boroughs
+
+✅ Roadmap
+
+ Add authentication (Supabase Auth)
+
+ Build predictive model for demand forecasting
+
+ Deploy interactive dashboards publicly
+
+ Integrate real-time data pipeline
+
+🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to check the issues page
+.
+
+📜 License
+
+This project is licensed under the MIT License - see the LICENSE
+ file for details.
